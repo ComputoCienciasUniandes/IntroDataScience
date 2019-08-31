@@ -1,0 +1,336 @@
+\documentclass[letterpaper,10pt,onecolumn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{enumitem}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{calligra}
+\usepackage{url}
+%\usepackage{algpseudocode} 
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\lstloadlanguages{[5.2]Mathematica}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{490pt}
+\setlength{\topmargin}{-40pt}
+\addtolength{\hoffset}{-0.3cm}
+\addtolength{\textheight}{4cm}
+
+\begin{document}
+\begin{center}
+
+\includegraphics[width=490pt]{header.png}\\[0.5cm]
+
+\textsc{\LARGE Introducci\'on a la Ciencia de Datos}\\[0.1cm]
+%\large Jaime E. Forero Romero\\[0.5cm]
+
+\end{center}
+
+\large \noindent\textsc{Nombre del curso:}  Introducci\'on a la Ciencia de Datos%Aqui  
+                                %nombre del curso 
+  
+\noindent\textsc{C\'odigo del curso:} FISI XXX %Aqui el codigo del
+                                %curso 
+
+\noindent\textsc{Unidad acad\'emica:} Departamento de F\'isica
+
+\noindent\textsc{Periodo acad\'emico:} 202010 %Aqui el periodo,
+                                %p.ej. 201510 
+
+\noindent\textsc{Horario (magistral):} XXX
+
+\noindent\textsc{Horario (laboratorio - Secci\'on 1):} XXX
+
+
+\noindent\rule{\textwidth}{1pt}\\[-0.3cm]
+
+\normalsize \noindent\textsc{Nombre profesor magistral:}
+Jaime Ernesto Forero Romero%Aqui nombre del profesor principal   
+
+\noindent\textsc{Correo electr\'onico:}
+\href{mailto:je.forero@uniandes.edu.co}{\nolinkurl{je.forero@uniandes.edu.co}}
+%Cambie address por su direccion de correo uniandes 
+
+\noindent\textsc{Horario y lugar de atenci\'on:} 
+%Miercoles 15:00 a 17:00, Oficina Ip208 \\[-0.1cm]
+
+%\normalsize \noindent\textsc{Nombre profesor Laboratorio:}
+%Jos\'e Alejandro Monta\~na Cort\'es %Aqui nombre del profesor principal 
+
+%\noindent\textsc{Correo electr\'onico:}
+%\href{mailto:ja.montana@uniandes.edu.co}{\nolinkurl{ja.montana@uniandes.edu.co}}
+%Cambie address por su direccion de correo uniandes 
+
+\noindent\textsc{Horario de atenci\'on:} con cita previa. 
+\\[-0.1cm]
+%\href{mailto: jd.prada1760@uniandes.edu.co}{\nolinkurl{jd.prada1760@uniandes.edu.co}}
+
+%Cambie address por direccion de correo uniandes del profesor
+%complementario 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} %Aqui horario y
+%lugar de atencion del profesor complementario, p.ej. Vi, 15:00 a
+%17:00, Oficina Ip102 
+%\\[-0.1cm]
+%Repetir esto en caso de varios profesores complementarios
+
+%\noindent\textsc{Nombre monitor(a):} %Aqui nombre del monitor si aplica
+
+%\noindent\textsc{Correo electr\'onico:}
+%\href{mailto:address@uniandes.edu.co}{\nolinkurl{address@uniandes.edu.co}}
+%%Cambie address por direccion de correo uniandes del monitor 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} %Aqui horario y
+%lugar de atencion del monitor, p.ej. Vi, 15:00 a 17:00, Oficina Ip102 
+
+\noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+
+\newcounter{mysection}
+\addtocounter{mysection}{1}
+
+\noindent\textbf{\large \Roman{mysection} \quad Introducci\'on}\\[-0.2cm]
+
+%Este espacio es para hacer una introduccion al curso, evidenciando la
+%propuesta metodologica. Debe ser clara y precisa. 
+
+\noindent\normalsize 
+La ciencia de datos (Data Science) se encuentra hoy en d\'ia en
+todas las \'areas t\'ecnicas y cient\'ificas, dentro y afuera del
+\'ambito acad\'emico.
+Esto se debe en gran parte a que la capacidad de procesar grandes
+cantidades de datos en computadoras de alto  rendimiento ha disminuido
+en costo monetario y en complejidad. 
+
+El curso de \textit{Introducci\'on a la Ciencia de Datos}
+presenta estas posibilidades computacionales a estudiantes de diferentes disciplinas
+cient\'ificas. Para esto se propone profundizar sus conocimientos
+en dos \'areas: m\'etodos de descripci\'on estad\'istica de datos y la
+implementaci\'on de algoritmos para extraer patrones presentes en
+diferentes tipos de datos.
+
+Se asume que los estudiantes de este curso ya tienen conocimientos
+b\'asicos en m\'etodos computacionales equivalentes al nivel del curso
+M\'etodos Computacionales (FISI-2028).
+El lenguaje de programaci\'on ser\'a Python.
+\\[0.1cm] 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Objetivos}\\[-0.2cm]
+
+%En este espacio se debe precisar el ente visor del curso y el
+%proposito ideal al finalizar el curso. 
+\noindent\normalsize El objetivo principal del curso es presentar
+algoritmos y t\'ecnicas b\'asicas para:
+
+\begin{itemize}
+\item visualizar datos,
+\\[-0.6cm]
+\item describir datos con modelos estad\'isticos,
+\\[-0.6cm]
+\item clasificar conjuntos de datos con algoritmos.
+\\[-0.6cm]
+\end{itemize} 
+\vspace*{0.5cm} 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Competencias a
+  desarrollar}\\[-0.2cm] 
+
+%En este espacio se describen las habilidades que el estudiante desarrollara en el transcurso del curso.
+
+\noindent\normalsize Al finalizar el curso, se espera que el
+estudiante est\'e en capacidad de: 
+
+\begin{itemize}
+\item describir y clasificar datos con modelos lineales \\[-0.6cm]   
+\item aplicar algoritmos de reducci\'on de dimensionalidad de datos\\[-0.6cm]  
+\item clasificar datos con redes neuronales.\\[-0.6cm]
+\\[-0.6cm]  
+\end{itemize}
+
+\vspace*{0.5cm} 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Contenido por
+  semanas}\\[-0.2cm]  
+
+%Se expone de forma ordenada toda la tematica a tratar del curso. Debe planearse para 15 semanas.
+
+\noindent\textbf{\textsc{Semana 1.}} 
+
+Presentaci\'on del curso. Probabilidad. Densidades de probabilidad. 
+Valores esperados y covarianzas. Probabilidades Bayesianas.
+Ajuste de curvas Bayesiano.
+\\[-0.3cm] % BISHOP 
+
+\noindent\textbf{\textsc{Semana 2.}} 
+
+Teor\'ia de la decisi\'on de la informaci\'on. 
+Medidas de clasificaci\'on. Inferencia y decisi\'on.
+Funciones de p\'erdidad para regresi\'on.
+Entrop\'ia relative e informaci\'on mutua.
+\\[-0.3cm] % BISHOP
+
+\noindent\textbf{\textsc{Semana 3}}
+
+Distribuciones de probabilidad. Variables binarias. Variables
+multinomiales. La distribuci\'on gaussiana.
+\\[-0.3cm] % BISHOP
+
+\noindent\textbf{\textsc{Semana 4}}
+
+M\'etodos de muestreo. M\'etodos B\'asicos. Markov Chain Monte
+Carlo. Gibbs sampling. Hamiltonian Montecarlo.
+\\[-0.3cm] % BISHOP
+
+
+\noindent\textbf{\textsc{Semana 5}}
+
+Visualizando datos. An\'alisis exploratorio de datos con Pandas. 
+\\[-0.3cm] % SKIENA 6.
+
+\noindent\textbf{\textsc{Semana 6}}
+
+Algebra lineal. Visualizaci\'on de operaciones
+matriciales. Factorizaci\'on de matrices. Autovalores y Autovectores.
+Descomposici\'on en autovalores.
+\\[-0.3cm] % SKIENA 8
+
+\noindent\textbf{\textsc{Semana 7}}
+
+Modelos lineales para regresi\'on. 
+Descomposici\'on
+Bias-Varianza. Regresi\'on lineal bayesiana.
+Comparaci\'on de modelos Bayesiana.
+\\[-0.3cm] % BISHOP 3
+
+\noindent\textbf{\textsc{Semana 8}}
+
+Modelos lineals para clasificaci\'on.
+Funciones discriminantes. Modelos probabil\'isticos generativos.
+Modelos discriminantes probabil\'isticos.
+\\[-0.3cm] % BISHOP 4
+
+\noindent\textbf{\textsc{Semana 9}}
+
+\'Arboles de decisi\'on y bosques aleatorios.
+\\[-0.3cm] % SKIENA 11.1
+
+\noindent\textbf{\textsc{Semana 10}}
+
+K-means clustering. 
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 11}}
+
+Gaussian Mixture Models.
+\\[-0.3cm]
+
+
+\noindent\textbf{\textsc{Semana 12}}
+
+Support Vector Machines.
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 13}}
+
+Principal Component Analysis.
+\\[-0.3cm]
+
+
+\noindent\textbf{\textsc{Semana 14}}
+
+Redes Neuronales. Feed-forward Networks. Entrenamiento de redes.
+Backpropagation. % BISHOP 5
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 15}}
+
+Redes Neuronales. Matriz Hessiana. Regularizaci\'on en redes
+neuronales. 
+% BISHOP 5
+\\[-0.3cm]
+
+\noindent\textbf{\textsc{Semana 16}}
+
+Redes Neuronales Convolucionales.
+\\[0.1cm]
+
+
+\vspace*{0.5cm} 
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad
+  Metodolog\'ia}\\[-0.2cm] 
+
+%Se describen las tecnicas y metodos para el desarrollo exitoso del curso.
+
+\noindent\normalsize 
+
+En las sesiones magistrales, luego de presentar un resumen de
+los conceptos te\'oricos, se har\'a \'enfasis en la pr\'actica computacional.
+Para que esto funcione es necesario que los estudiantes estudien el
+tema correspondiente {\bf antes de cada clase} siguiendo las lecturas
+preparatorias recomendadas.
+
+\vspace*{0.5cm} 
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Criterios de
+  evaluaci\'on}\\[-0.2cm] 
+
+Las componentes que reciben calificaci\'on en la Magistral (en
+par\'entesis su contribuci\'on a la nota definitiva) son las
+siguientes:  
+
+\begin{itemize}
+\item Asistencia ($20\%$). Cada asistencia a clase cuenta como una
+  nota de 5.0 y una falta como 0.0. El promedio de esas notas ser\'a
+  la nota de asistencia. 
+  Si hay {\bf seis} o m\'as fallas no justificadas durante todo el
+  semestre esta nota es cero (0.0).
+\item Ejercicios ($20\%$ cada uno). En cada clase hay un ejercicio para
+  entregar. Cada ejercicio tiene dos partes. 
+  La primera se publica al menos un d\'ia antes de la clase y debe
+  resolverse por fuera de la magistral. 
+  La segunda se publica y se resuelve durante la magistral.
+  Durante el semestre el profesor eligir\'a a su discreci\'on cuatro (4)
+  de estos ejercicios para ser calificados. 
+\end{itemize}
+
+\vspace*{0.5cm} 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad
+  Bibliograf\'ia}\\[-0.2cm] 
+
+%Indicar los libros y la documentacion guia.
+
+
+\noindent\normalsize Bibliograf\'ia principal:
+
+\begin{itemize}
+
+
+\item
+\textit{Pattern Recognition and Machine Learning}. C. M. Bishop, 
+Springer, 2006.\\[-0.6cm]
+
+\item 
+\textit{The Data Science Manual}. S. S. Skienna, Springer, 2017.\\[-0.6cm]
+
+\item
+\textit{Python Data Science Handbook.} J. VanderPlas, O'Reilly, 2016.\\[-0.6cm]
+
+\item 
+\textit{An Introduction to Statistical Learning with Applications in
+  R}, G. James, D. Witten, T. Hastie, R. Tibshirani, Springer, 2015 \\[-0.6cm]
+\end{itemize}
+
+
+\end{document}
