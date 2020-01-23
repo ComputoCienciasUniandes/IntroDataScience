@@ -33,7 +33,7 @@ def solve_poly(x, y, m):
 
     """
     # matriz que guarda los vectores columna de potencias de x
-    S = np.zeros([m+1, len(x)])
+    S = np.zeros([len(x), m+1])
     for i in range(m+1):
         S[:,i] = x**i
     
