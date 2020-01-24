@@ -53,7 +53,11 @@ data = np.loadtxt("numeros_20.txt")
 # diccionario para guardar todos los coeficientes
 betas = {}
 
-for m in [1,2,3,4]:
+# distintos valores de m para probas
+
+m_values = [1,2,3,4]
+
+for m in m_values:
     X = data[: m+1, 0]
     Y = data[: m+1, 1]
 
@@ -63,15 +67,14 @@ for m in [1,2,3,4]:
 
 plt.figure()
 
-for i in range(4):
+for i,m in enumerate(m_values):
     # vuelvo a sacar los puntos para graficarlos
-    m = i+1
     X = data[: m+1, 0]
     Y = data[: m+1, 1]
 
     # array de valores de x que va del minimo al maximo valor considerados
     # para hacer los ajustes
-    x_model = np.linspace(np.min(data[:5,0]), np.max(data[:5,0]), 100)
+    x_model = np.linspace(np.min(data[:10,0]), np.max(data[:10,0]), 100)
 
     # valores correspondientes al modelo de orden m
     y_model = poly(x_model, betas[m])
