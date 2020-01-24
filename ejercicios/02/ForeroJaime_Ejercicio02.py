@@ -46,7 +46,7 @@ class PolyFit:
 
     def score(self, x, y):
         """
-        Calcula el mean square errer
+        Calcula el root mean squared error
         
         Entradas:
         x : array de entrada de valores de x.
