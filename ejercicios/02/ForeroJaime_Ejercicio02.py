@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 class PolyFit:
-    def __init__(self, degree=0):
+    def __init__(self, degree=1):
         self.degree = degree
         self.betas = np.ones(degree)
 
