@@ -35,4 +35,4 @@ for i in range(4):
     plt.xlim([-0.2, 0.4])
 
 plt.subplots_adjust(hspace=0.5)
-plt.savefig("bootstrapping", bbox_inches='tight')
+plt.savefig("bootstrapping.png", bbox_inches='tight')
