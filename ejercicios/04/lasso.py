@@ -42,7 +42,7 @@ indices = np.array(np.arange(len(columns)))
 
 # iteracion sobre el numero de indices para utilizas
 for n_predictores in range(1,len(indices)+1):
-    # todas las combinasciones posibles
+    # todas las combinaciones posibles
     perm = itertools.combinations(indices, n_predictores)
     for p in perm:
         c = list(p) # estos son los indices de las columnas que voy a utilizar
@@ -58,7 +58,6 @@ for n_predictores in range(1,len(indices)+1):
         n_predict.append(n_predictores)
         # guarda los indices de las columas utilizadas
         predictores.append(c)
-
 
 
 # Primera grafica
