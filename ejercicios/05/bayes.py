@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 
 def prior(H):
     """
-    Probabilidad de sacar cara
+    Densidad de probabilidad de H 
+    (H es la probabilidad de sacar cara).
     """
     p = np.ones(len(H))
     return p
@@ -22,7 +23,7 @@ def like(secuencia, H):
 
 def posterior(H, secuencia):
     """
-    Posterios calculado con la normalizacion adecuada
+    Posterior calculado con la normalizacion adecuada
     """
     post =  like(secuencia, H) * prior(H)
     evidencia = np.trapz(post, H)
