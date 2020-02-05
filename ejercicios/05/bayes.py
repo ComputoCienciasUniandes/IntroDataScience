@@ -11,7 +11,7 @@ def prior(H):
 
 def like(secuencia, H):
     """
-    Likelihod de sacar cara o sello, dado H.
+    Likelihod de sacar una secuencia de caras y sellos, dado H.
     H es la probabilidad de sacar una cara.
     """
     L = np.ones(len(H))
