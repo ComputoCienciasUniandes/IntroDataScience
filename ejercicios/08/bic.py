@@ -24,7 +24,7 @@ def logprior_model_B(params):
         return 0
     
 def logprior_model_C(params):
-    if params[2]<0 or params[4]<0 or params[1] or params[3]<0:
+    if params[2]<0 or params[4]<0 or params[1]<0 or params[3]<0:
         return -np.inf
     else:
         return 0
@@ -65,7 +65,7 @@ def BIC(params_model):
     n_points = len(params_model['y_obs'])
     return 2.0*(-max_loglike + 0.5*n_dim*np.log(n_points))
 
-def plot_model(params_model, model_name):
+def plot_model(params_model, model, model_name):
     n_dim = np.shape(params_model['params'])[1]
     n_points = len(params_model['y_obs'])
     
@@ -78,14 +78,15 @@ def plot_model(params_model, model_name):
         
     plt.subplot(2,n_dim//2+1, i+2)
     best = np.mean(params_model['params'], axis=0)
+    x = params_model['x_obs']
     x_model = np.linspace(x.min(), x.max(), 100)
-    y_model = model_A(x_model, best_A)
+    y_model = model(x_model, best)
     plt.plot(x_model, y_model)
     plt.errorbar(x, y, yerr=sigma_y, fmt='o')
     plt.title("BIC={:.2f}".format(BIC(params_model)))
     
     plt.subplots_adjust(hspace=0.5)
-    plt.savefig(model_name+".png",bbox_inches='tight')
+    plt.savefig(model_name+".png")
     
 
 # Lee los datos
