@@ -101,9 +101,9 @@ params_model_B = run_mcmc(x, y, sigma_y, model_B, logprior_model_B, scale=0.05, 
 params_model_C = run_mcmc(x, y, sigma_y, model_C, logprior_model_C, n_params=5, scale=0.05, n_iterations=1000000)
 
 # hace las graficas
-plot_model(params_model_A, 'model_A')
-plot_model(params_model_B, 'model_B')
-plot_model(params_model_C, 'model_C')
+plot_model(params_model_A, model_A, 'model_A')
+plot_model(params_model_B, model_B, 'model_B')
+plot_model(params_model_C, model_C, 'model_C')
 
 
 
