@@ -57,7 +57,7 @@ x_train_transform = x_train @ vectores
 linear = LinearDiscriminantAnalysis()
 
 # numero de componentes a utilizar, de 3 a 40.
-n_comp = np.arange(3,5)
+n_comp = np.arange(3,41)
 
 # arrays para guardar valores de f1
 f1_test_unos = np.ones(len(n_comp))
