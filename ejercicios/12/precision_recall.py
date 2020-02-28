@@ -35,11 +35,12 @@ def prepare_data():
     x_test = scaler.transform(x_test)
     return {'x_train':x_train, 'x_test':x_test, 'y_train':y_train, 'y_test':y_test}
 
-def transform_pca(data, numeros=[1], n_componentes=10):
+def transform_pca(data, numeros=[1], n_componentes=10, model_name='base'):
     # numeros utilizados para generar el espacio de PCA
-    dd = data['y_train']==data['y_train']
+    dd = data['y_train']!=data['y_train']
     for n in numeros:
-        dd &= data['y_train']==n
+        print(n)
+        dd |= data['y_train']==n
         
     cov = np.cov(data['x_train'][dd].T)
     valores, vectores = np.linalg.eig(cov)
@@ -56,13 +57,55 @@ def transform_pca(data, numeros=[1], n_componentes=10):
     # encuentro las imagenes en el espacio de los autovectores
     
     test_trans = data['x_test'] @ vectores
-    data['x_test_transform'] = test_trans[:,:n_componentes]
+    data['x_test_transform_'+model_name] = test_trans[:,:n_componentes]
     train_trans = data['x_train'] @ vectores
-    data['x_train_transform'] = train_trans[:,:n_componentes]
+    data['x_train_transform_'+model_name] = train_trans[:,:n_componentes]
     
     return data
 
-def precision_recall(data)
+def precision_recall(data, model_name='base'):
+    linear = LinearDiscriminantAnalysis()
+    linear.fit(data['x_train_transform_'+model_name], data['y_train'])
+    proba_test  = linear.predict_proba(data['x_test_transform_'+model_name])
+    prec, rec, th = sklearn.metrics.precision_recall_curve(data['y_test'], proba_test[:,1], pos_label=1)
+    data['precision_'+model_name] = prec[:-1]
+    data['recall_'+model_name] = rec[:-1]
+    data['threshold_'+model_name] = th.copy()
+    data['F1_'+model_name] = 2.0*prec[:-1]*rec[:-1]/(prec[:-1]+rec[:-1] +1E-10)
+    #ii = np.isnan(data['F1_'+model_name])
+    #data['F1_'+model_name][ii] = 0.0
+    return data
+                                                                
+def plot_precision_recall(data, model_name='base'):
+    ii = np.argmax(data['F1_'+model_name])
+    plt.plot(data['recall_'+model_name], data['precision_'+model_name], label=model_name)
+    plt.scatter(data['recall_'+model_name][ii], data['precision_'+model_name][ii], color='red', s=50.0)
 
+def plot_f1_threshold(data, model_name='base'):
+    ii = np.argmax(data['F1_'+model_name])
+    plt.plot(data['threshold_'+model_name], data['F1_'+model_name], label=model_name)
+    plt.scatter(data['threshold_'+model_name][ii], data['F1_'+model_name][ii], color='red', s=50.0)
+
+    
 datos = prepare_data()
-datos_transformados = transform_pca(datos)
+numeros = [[1], [0], [1,0]]
+modelos = ['Unos', 'Otros', 'Todos']
+for n, m in zip(numeros, modelos):
+    print(n, m)
+    datos = transform_pca(datos, numeros=n, model_name=m)
+    datos = precision_recall(datos, model_name=m)
+    
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1) 
+for m in modelos:
+    plot_f1_threshold(datos, model_name=m)
+plt.xlabel("probabilidad")
+plt.ylabel("F1")
+
+plt.subplot(1,2,2)
+for m in modelos:
+    plot_precision_recall(datos, model_name=m)
+plt.xlabel("recall")
+plt.ylabel("precision")
+plt.legend()
+plt.savefig("prec_recall.png")
