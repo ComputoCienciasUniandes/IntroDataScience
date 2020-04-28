@@ -9,3 +9,7 @@ sklearn
 umap-learn
 torch 
 torchvision
+Keras
+keras-vis
+tensorflow
+tensorflow-estimator
