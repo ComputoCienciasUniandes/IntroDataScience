@@ -13,3 +13,6 @@ https://www.hepi.ac.uk/2020/02/17/the-employment-of-phd-graduates-in-the-uk-what
 
 PhDs: the tortuous truth
 https://www.nature.com/articles/d41586-019-03459-7
+
+Beware the data science pin factory: The power of the full-stack data science generalist and the perils of division of labor through function
+https://multithreaded.stitchfix.com/blog/2019/03/11/FullStackDS-Generalists/
